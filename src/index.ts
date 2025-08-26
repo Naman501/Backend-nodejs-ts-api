@@ -5,6 +5,7 @@ import {config} from "dotenv";
 import { log } from "console";
 import express,{Express,Request,Response} from "express";
 import cors from "cors"
+import { connectDb } from "./utils/db";
 
 
 
@@ -14,6 +15,10 @@ config();
 
 const port = process.env.PORT || 8080
 
+
+//DB CONNECTION
+
+connectDb()
 
 // Middleware
 app.use(cors({
