@@ -1,3 +1,5 @@
+import dottenv from "dotenv";
+import {config} from "dotenv";
 // CREATING A SERVER
 // STEPS
 // 1. Import the express
@@ -9,9 +11,11 @@ import express,{Express} from "express";
 
     const app:Express = express()
 
+
+    config();
 // 3. Define a port
 
-const port = 8080
+const port = process.env.PORT || 8080
 
 // 4.  Listen on a port
 
