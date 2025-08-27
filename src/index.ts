@@ -6,6 +6,8 @@ import { log } from "console";
 import express,{Express,Request,Response} from "express";
 import cors from "cors"
 import { connectDb } from "./utils/db";
+import bookRouter from "./routes/bookRoute";
+import routes from "./routes";
 
 
 
@@ -25,6 +27,8 @@ app.use(cors({
     origin:process.env.HOST_URL || "*" 
 }))
 
+// app.use("/api/books",bookRouter)
+app.use("/api",routes)
 
 //BASIC ENDPOINT
 app.get("/",(req:Request,res:Response)=>{
