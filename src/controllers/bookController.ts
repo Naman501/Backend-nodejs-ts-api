@@ -8,12 +8,34 @@ interface IResponse{
     data?:any,
 }
 
-export const getBooks=(req:Request,res:Response)=>{
-           return res.json({
-                    success:false,
-                    message:"No books found",
+export const getBooks=async (req:Request,res:Response)=>{
+
+try {
+     
+    const books = await Book.find();
+    if(!books){
+        return res.status(404).json({
+            success:false,
+            message:"No books Found."
+        } as IResponse)
+    }
+ 
+    return res.status(200).json({
+                    success:true,
+                    message:"Books found",
+                    data:books
            } as IResponse
         )
+  
+
+} catch (error) {
+    return res.status(500).json({
+        success:false,
+        message:"Internal Server Error"
+    } as IResponse)
+}
+
+         
 }
 
 export const addBook = async (req:Request,res:Response)=>{
