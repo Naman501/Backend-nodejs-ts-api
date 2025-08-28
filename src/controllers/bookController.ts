@@ -1,6 +1,7 @@
 import { Response,Request } from "express"
 import { Book } from "../models/Book"
 import { log } from "console"
+import { matchesGlob } from "path";
 
 interface IResponse{
     success:boolean,
@@ -98,3 +99,25 @@ export const updateBook = async(req:Request,res:Response)=>{
         })
     }
 }
+
+export const deleteBooks = async (req:Request,res:Response)=>{
+    const {id} = req.params;
+try {
+    const book = await Book.findByIdAndDelete(id)
+  if(!book){
+      return res.status(404).json({
+        success:false,
+            message:"No book found."
+    })
+  }
+  return res.status(200).json({
+    success:true,
+    message:"Book Deleted!",
+  })
+    
+} catch (error: any) {
+      return res.status(300).json({
+            success:false,
+            message:error.message
+        })
+}}
