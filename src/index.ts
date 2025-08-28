@@ -27,8 +27,12 @@ app.use(cors({
     origin:process.env.HOST_URL || "*" 
 }))
 
+app.use(express.json())
+
+
 // app.use("/api/books",bookRouter)
 app.use("/api",routes)
+
 
 //BASIC ENDPOINT
 app.get("/",(req:Request,res:Response)=>{
