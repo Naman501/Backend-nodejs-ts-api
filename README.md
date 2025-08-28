@@ -42,21 +42,3 @@ It was my first deep dive into combining TypeScript with backend development, an
 
 ---
 
-## 📂 Folder Structure  
-
-Here’s how I structured my backend project:  
-
-📦 backend-typescript-tutorial
-├── 📁 src
-│ ├── 📁 controllers # Logic for handling requests/responses
-│ ├── 📁 models # Database models (Mongoose + TS)
-│ ├── 📁 routes # API routes
-│ ├── 📁 middlewares # Custom middlewares
-│ ├── 📁 utils # Helper functions / constants
-│ ├── app.ts # Express app configuration
-│ └── server.ts # Server entry point
-├── 📄 .env # Environment variables
-├── 📄 tsconfig.json # TypeScript configuration
-├── 📄 package.json # Dependencies & scripts
-└── 📄 README.md # Documentation (this file)
-
